@@ -1,0 +1,21 @@
+# Build directories
+build/
+dist/
+
+# Video files
+Video/
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS files
+.DS_Store
+Thumbs.db
