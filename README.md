@@ -20,16 +20,28 @@ A real-time breathing pattern monitoring application that uses computer vision t
 
 ## Version History
 
-This repository contains the complete evolution of the Breathing Monitor application:
+This repository uses Git tags for version management. You can view all versions using:
 
+```bash
+git tag
+```
+
+To checkout a specific version:
+```bash
+git checkout v4.0  # Latest stable version
+git checkout v3.9  # Previous version
+```
+
+**Major Versions:**
 - **v1.0**: Initial basic breathing monitor
 - **v2.0**: Enhanced features and improved UI
-- **v3.0-v3.9**: Iterative improvements including:
-  - Advanced signal processing
-  - Refined user interface
-  - Performance optimizations
-  - Enhanced data processing capabilities
+- **v3.x**: Iterative improvements (v3.0 through v3.9)
 - **v4.0**: Major release with multi-threading support and improved stability
+
+View the complete changelog with:
+```bash
+git log --oneline --decorate
+```
 
 ## Installation
 
@@ -55,9 +67,9 @@ matplotlib
    pip install opencv-python numpy pandas matplotlib
    ```
 
-3. Run the latest version:
+3. Run the application:
    ```bash
-   python BreathingMonitor_v4.0.py
+   python breathing_monitor.py
    ```
 
 ## Configuration
@@ -107,6 +119,24 @@ This application is intended for research and educational purposes. It should no
 
 This project is provided as-is for educational and research purposes.
 
-## Contributing
+## Development
 
-This repository represents the development history of the Breathing Monitor application. Each version tag corresponds to a significant milestone in the project's evolution.
+### Making Changes
+1. Make your modifications to `breathing_monitor.py`
+2. Test thoroughly
+3. Commit your changes:
+   ```bash
+   git add .
+   git commit -m "Description of changes"
+   ```
+4. Tag new versions:
+   ```bash
+   git tag v4.1
+   git push origin main --tags
+   ```
+
+### Version Management
+- Use semantic versioning (MAJOR.MINOR.PATCH)
+- Tag significant releases
+- Keep the main branch stable
+- Use feature branches for major changes
