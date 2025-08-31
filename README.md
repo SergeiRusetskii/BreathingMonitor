@@ -72,6 +72,13 @@ matplotlib
    python breathing_monitor.py
    ```
 
+## Project Structure
+
+- `breathing_monitor.py`: Tkinter interface and application logic
+- `monitor_threads.py`: Worker threads for video capture and processing
+- `settings*.txt`: Example configuration files
+- `Patient_database.csv`: Sample patient database
+
 ## Configuration
 
 The application uses a `settings.txt` file for configuration:

@@ -1,3 +1,10 @@
+"""Main GUI module for the Breathing Monitor application.
+
+This module defines the :class:`BreathingMonitorApp` which builds the
+Tkinter interface, manages video capture and processing threads, and handles
+user interaction such as patient selection and calibration.
+"""
+
 import tkinter as tk
 from tkinter import ttk
 from tkinter import messagebox
@@ -23,6 +30,8 @@ from monitor_threads import (
 
 
 class BreathingMonitorApp:
+    """Main application window managing UI and processing threads."""
+
     def __init__(self, root):
         """Initialize the Breathing Monitor application."""
         self.root = root
@@ -110,10 +119,12 @@ class BreathingMonitorApp:
         self.running = False
         
     def setup_control_groups(self):
+        """Create and layout control frames and widgets."""
+
         # Configure style for LabelFrame
         self.style = ttk.Style()
         self.style.configure(
-            'TLabelframe.Label', 
+            'TLabelframe.Label',
             font=self.common_font)
 
         # Patient Control Frame
@@ -288,6 +299,8 @@ class BreathingMonitorApp:
             self.root.after(self.update_interval, self.update)
 
     def patient_open(self):
+        """Open window to search and select a patient."""
+
         self.patient_window = tk.Toplevel(self.root)
         self.patient_window.title("Patient Explorer")
 
@@ -440,6 +453,8 @@ class BreathingMonitorApp:
 
 
     def update_thresholds(self):
+        """Apply updated threshold values from the UI fields."""
+
         upper = self.upper_threshold_var.get()
         lower = self.lower_threshold_var.get()
         index = self.couch_index_var.get()
@@ -538,6 +553,8 @@ class BreathingMonitorApp:
 
 
     def patient_load_data(self, patient_row):
+        """Populate fields using the selected patient's record."""
+
         try:
             self.patient_id = patient_row['ID1']
             self.patient_name = patient_row['Patient name']
@@ -573,6 +590,8 @@ class BreathingMonitorApp:
 
 
     def show_adjust_limits_window(self):
+        """Open a window to adjust video capture boundaries."""
+
         if not self.adjust_window:
             self.adjust_window = tk.Toplevel(self.root)
             self.adjust_window.title("Adjust Capture Limits")
@@ -646,10 +665,12 @@ class BreathingMonitorApp:
 
 
     def show_adjust_video(self):
+        """Start video feed for capture limit adjustments."""
+
         self.cap = cv2.VideoCapture(self.camera_url)
         if not self.cap.isOpened():
             messagebox.showerror(
-                "Error", 
+                "Error",
                 "Cannot connect to camera video stream!")
             return
 
@@ -658,6 +679,8 @@ class BreathingMonitorApp:
 
     
     def update_adjust_video(self):
+        """Update the adjustment window with the latest video frame."""
+
         if self.video_running:
             ret, img = self.cap.read()
             if ret:
@@ -706,6 +729,8 @@ class BreathingMonitorApp:
 
 
     def update_capture_limits(self):
+        """Store new capture limits from the adjustment window."""
+
         self.capture_top = int(self.capture_top_entry.get())
         self.capture_bottom = int(self.capture_bottom_entry.get())
         self.capture_left = int(self.capture_left_entry.get())
@@ -717,19 +742,23 @@ class BreathingMonitorApp:
 
 
     def update_capture_area(self):
+        """Ensure the capture object reflects updated limits."""
+
         # Ensure the capture object is open
         if not self.cap.isOpened():
             self.cap = cv2.VideoCapture(self.camera_url)
 
 
     def close_adjust_limits_window(self):
+        """Close the capture limits adjustment window and cleanup."""
+
         if self.adjust_window:
             self.video_running = False
-             # Close the OpenCV window
+            # Close the OpenCV window
             if cv2.getWindowProperty(
-                "Adjust Capture Limits - Video", 
+                "Adjust Capture Limits - Video",
                 cv2.WND_PROP_VISIBLE) >= 0:
-                cv2.destroyWindow("Adjust Capture Limits - Video") 
+                cv2.destroyWindow("Adjust Capture Limits - Video")
             self.adjust_window.destroy()
             self.adjust_window = None
 
@@ -737,6 +766,8 @@ class BreathingMonitorApp:
 
 
     def calibrate_ask(self):
+        """Display instructions and ask user to proceed with calibration."""
+
         dialog = tk.Toplevel(self.root)
         dialog.title("Calibration Procedure")
 
@@ -766,10 +797,14 @@ class BreathingMonitorApp:
         no_button.pack(side=tk.LEFT, padx=5)
 
     def calibrate_proceed_with_calibration(self, dialog):
+        """Close the prompt and open the calibration window."""
+
         dialog.destroy()
         self.calibrate_show_calibration_window()
 
     def calibrate_show_calibration_window(self):
+        """Show window used to compute calibration factor."""
+
         if not self.calibration_window:
             self.calibration_window = tk.Toplevel(self.root)
             self.calibration_window.title("Calibrate Breathing Amplitude")
@@ -815,6 +850,8 @@ class BreathingMonitorApp:
             close_button.grid(row=2, column=2)
 
     def calibrate_calculate_amplitude(self):
+        """Calculate measured amplitude from collected data."""
+
         # Ensure at least 20 seconds of data
         if len(self.y_vals) < self.sample_rate * 20:
             messagebox.showerror("Error", "Not enough data captured!")
@@ -824,6 +861,8 @@ class BreathingMonitorApp:
         self.measured_amplitude.set(f"{amplitude:.2f}")
 
     def calibrate_apply_calibration(self):
+        """Apply calibration factor based on measured amplitude."""
+
         reference_amp = self.reference_amplitude.get()
         measured_amp = float(self.measured_amplitude.get())
         if measured_amp != 0:
@@ -835,6 +874,8 @@ class BreathingMonitorApp:
             self.calibration_message.set("Calibration failed")
 
     def calibrate_close_calibration_window(self):
+        """Close calibration window and reset state."""
+
         if self.calibration_window:
             self.calibration_window.destroy()
             self.calibration_window = None
