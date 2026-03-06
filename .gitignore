@@ -2,6 +2,9 @@
 build/
 dist/
 
+# Local settings data
+settings/*.csv
+
 # Video files
 Video/
 

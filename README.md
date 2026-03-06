@@ -43,9 +43,8 @@ View the complete changelog with:
 git log --oneline --decorate
 ```
 
-## Installation
+## Requirements
 
-### Requirements
 ```
 python >= 3.7
 tkinter
@@ -55,29 +54,11 @@ pandas
 matplotlib
 ```
 
-### Setup
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/SergeiRusetskii/BreathingMonitor.git
-   cd BreathingMonitor
-   ```
-
-2. Install dependencies:
-   ```bash
-   pip install opencv-python numpy pandas matplotlib
-   ```
-
-3. Run the application:
-   ```bash
-   python breathing_monitor.py
-   ```
-
 ## Project Structure
 
 - `breathing_monitor.py`: Tkinter interface and application logic
 - `monitor_threads.py`: Worker threads for video capture and processing
 - `settings*.txt`: Example configuration files
-- `Patient_database.csv`: Sample patient database
 
 ## Configuration
 
@@ -93,7 +74,7 @@ The application uses a `settings.txt` file for configuration:
 ## Usage
 
 1. **Camera Setup**: Configure your camera source in settings.txt
-2. **Patient Selection**: Load patient data from the included CSV files
+2. **Patient Selection**: Load patient data from your own CSV or Excel files
 3. **Region Selection**: Define the monitoring area on the video feed
 4. **Calibration**: Run calibration to ensure accurate measurements
 5. **Monitoring**: Start real-time breathing pattern analysis
@@ -101,8 +82,7 @@ The application uses a `settings.txt` file for configuration:
 
 ## Patient Database
 
-The application includes patient database functionality:
-- `Patient_database.csv`: CSV format patient records
+The application supports loading patient records from external CSV or Excel files.
 
 ## Technical Details
 
@@ -124,26 +104,4 @@ This application is intended for research and educational purposes. It should no
 
 ## License
 
-This project is provided as-is for educational and research purposes.
-
-## Development
-
-### Making Changes
-1. Make your modifications to `breathing_monitor.py`
-2. Test thoroughly
-3. Commit your changes:
-   ```bash
-   git add .
-   git commit -m "Description of changes"
-   ```
-4. Tag new versions:
-   ```bash
-   git tag v4.1
-   git push origin main --tags
-   ```
-
-### Version Management
-- Use semantic versioning (MAJOR.MINOR.PATCH)
-- Tag significant releases
-- Keep the main branch stable
-- Use feature branches for major changes
+This project is released under the Breathing Monitor Community License. See `LICENSE`.

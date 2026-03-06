@@ -394,7 +394,7 @@ class BreathingMonitorApp:
             "calibration_factor": 0.7,
             "lower_threshold": 1.7,
             "upper_threshold": 1.8,
-            "camera_url": 'rtsp://admin:camera01@192.168.40.70:554/cam/realmonitor?channel=1&subtype=0'
+            "camera_url": 'rtsp://username:password@camera-host:554/stream-path'
         }
 
         # Set default values

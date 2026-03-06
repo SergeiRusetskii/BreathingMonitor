@@ -1,0 +1,47 @@
+Breathing Monitor Community License
+
+Copyright (c) 2025 Sergei Rusetskii
+
+TERMS AND CONDITIONS
+
+1. GRANT OF LICENSE
+
+Permission is hereby granted, free of charge, to any person or organization obtaining a copy of this software and associated documentation files (the "Software") to use, copy, modify, and redistribute the Software under the conditions below.
+
+2. PERMITTED USE
+
+- Internal use is permitted for any organization (including commercial clinics), with the right to modify for internal needs.
+- Non-profit SaaS/hosted use is permitted if offered free of charge with proper attribution to this repository.
+
+3. REDISTRIBUTION
+
+Redistribution of the Software (original or modified) is permitted only if ALL of the following are true:
+- No fee or other compensation is charged for the Software itself.
+- Attribution to "Breathing Monitor" and a link to the original repository are included.
+- This license text and copyright notice are provided with the Software.
+
+4. PROHIBITED COMMERCIAL USE
+
+You may NOT:
+- Embed, incorporate, or bundle the Software (or derivatives) into any product or service offered for a fee or other commercial advantage.
+- Provide paid consulting deliverables that include the Software (original or modified) as a bundled component.
+- Offer the Software or derivatives as paid SaaS/hosted services.
+
+Commercial use outside these terms requires a separate commercial license from the copyright holder.
+
+5. NO TRADEMARK OR ENDORSEMENT RIGHTS
+
+This license does not grant any rights to use the Breathing Monitor name, logos, or other trademarks, nor imply endorsement.
+
+6. NO WARRANTY
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+7. MEDICAL DISCLAIMER
+
+This tool is provided for research, technical evaluation, and operational support purposes in respiratory motion monitoring. It is not a medical device and must not be relied upon as a substitute for validated clinical monitoring equipment, diagnosis, or professional medical judgment. Clinical use, if any, remains the responsibility of qualified healthcare professionals and the adopting institution.
+
+---
+
+For commercial licensing inquiries, please contact:
+Sergei Rusetskii - https://github.com/SergeiRusetskii

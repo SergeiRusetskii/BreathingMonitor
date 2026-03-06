@@ -5,4 +5,4 @@ capture_bottom: 479
 capture_left: 100
 capture_right: 540
 calibration_factor: 0.045
-camera_url: rtsp://user:CameraUser@192.168.40.73:554/Streaming/Channels/103
+camera_url: rtsp://username:password@camera-host:554/Streaming/Channels/103
